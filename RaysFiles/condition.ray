@@ -1,0 +1,16 @@
+
+speak "enter your marks"
+marks = input as int
+
+
+if marks>=75
+speak "A"
+elseif marks>=60
+speak "B"
+elseif marks>=50
+speak "C"
+elseif marks>=35
+speak "S"
+else
+speak "W"
+endif

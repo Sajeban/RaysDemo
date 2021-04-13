@@ -1,0 +1,15 @@
+//getting input shorthand method
+speak "Enter name"
+name = input
+printline name
+
+//getting input
+speak "Enter age"
+age = call input
+printline age
+
+
+age = call input
+
+#shorthand method
+name = input

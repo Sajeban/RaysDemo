@@ -1,0 +1,10 @@
+number1 = 10
+printline Number1
+prIntLINE NuMber1
+
+//case sensitive for string literals
+if "hi" equals "HI"
+print "Same string"
+else
+print "different string"
+endif

@@ -1,0 +1,17 @@
+
+//without parameters
+method saysomething
+return "Hey! I am a method in Rays."
+endmethod
+
+x= call saysomething
+printline x
+
+//with parameters
+method sum params = a & b
+return a+b
+endmethod
+
+value = call sum args = 6 & 8
+printline value
+

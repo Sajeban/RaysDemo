@@ -6,10 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tiny-language-antlr4" />
+        <module name="rays-language" />
+        <module name="rays-langugage" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="FXProject" target="1.7" />
+      <module name="rays-language" target="1.7" />
+      <module name="rays-langugage" target="1.7" />
       <module name="tiny-language-antlr4" target="1.7" />
     </bytecodeTargetLevel>
   </component>

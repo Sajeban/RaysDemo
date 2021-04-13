@@ -40,7 +40,10 @@ println "***************Function call**************************"
 x= twice args = 2     //function call with args
 println x
 
-
+method twice param = n
+  temp = n + n
+  return temp
+end
 
 y= twice args = twice args = 2  //function call within function call
 println y

@@ -1,0 +1,18 @@
+//Finding leap year
+repeat 5 times
+printline "Enter year"
+year = input as int
+if year % 4 == 0
+if year % 100 equals 0
+if year % 400 == 0
+printline year + " is leap year"
+else
+printline year + " is not leap year"
+endif
+else
+printline year + " is leap year"
+endif
+else
+printline year + " is not leap year"
+endif
+endrepeat

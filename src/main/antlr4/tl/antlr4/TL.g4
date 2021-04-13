@@ -14,54 +14,65 @@ statement
  | ifStatement
  | forStatement
  | whileStatement
+ |repeatStatement
+ |speakStatement
  ;
 
+
+
 assignment
- : Identifier indexes? '=' expression
+ : Identifier indexes? '=' expression (As Type)?
  ;
 
 functionCall
- : Identifier ARGS '=' exprList?  #identifierFunctionCall
+ :Call Identifier (ARGS '=' exprList)?  #identifierFunctionCall
  | Println  expression?   #printlnFunctionCall
  | Print  expression     #printFunctionCall
  | Assert '(' expression ')'    #assertFunctionCall
  | Size '(' expression ')'      #sizeFunctionCall
  ;
 
+speakStatement: Speak expression;
+
 ifStatement
- : ifStat elseIfStat* elseStat? End
+ : ifStat elseIfStat* elseStat? EndIf
  ;
 
 ifStat
- : If expression Do block
+ : If expression  block
  ;
 
 elseIfStat
- : Else If expression Do block
+ : ElseIf expression  block
  ;
 
 elseStat
- : Else Do block
+ : Else  block
  ;
 
 functionDecl
- : Def Identifier PARAM '=' idList?  block End
+ : Def Identifier (PARAMS '=' idList)?  block EndMethod
+
  ;
 
 forStatement
- : For Identifier '=' expression To expression Do block End
+ : For Identifier '=' expression To expression  block EndFor
  ;
 
 whileStatement
- : While expression Do block End
+ : While expression  block EndWhile
+ ;
+
+ repeatStatement
+ :Repeat Number Times   block EndRepeat
  ;
 
 idList
- : Identifier ( ',' Identifier )*
+ : Identifier ( '&' Identifier )*
  ;
 
 exprList
- : expression ( ',' expression )*
+ : expression ( '&' expression )*
  ;
 
 expression
@@ -71,7 +82,7 @@ expression
  | expression op=( '*' | '/' | '%' ) expression         #multExpression
  | expression op=( '+' | '-' ) expression               #addExpression
  | expression op=( '>=' | '<=' | '>' | '<' ) expression #compExpression
- | expression op=( '==' | '!=' ) expression             #eqExpression
+ | expression op=( '==' | '!=' |EqualsString) expression             #eqExpression
  | expression '&&' expression                           #andExpression
  | expression '||' expression                           #orExpression
  | expression '?' expression ':' expression             #ternaryExpression
@@ -82,9 +93,11 @@ expression
  | Null                                                 #nullExpression
  | list indexes?                                        #listExpression
  | Identifier indexes?                                  #identifierExpression
+ |ErrorString                                           #errorExpression
  | String indexes?                                      #stringExpression
  | '(' expression ')' indexes?                          #expressionExpression
- | Input  String?                                #inputExpression
+ |  (Input|Call Input)  String?                         #inputExpression
+
  ;
 
 list
@@ -95,25 +108,38 @@ indexes
  : ( '[' expression ']' )+
  ;
 
-Println  : 'println';
-PrintString : 'printString';
-Print    : 'print';
-Input    : 'input';
-Assert   : 'assert';
-Size     : 'size';
-Def      : 'method';
-If       : 'if';
-Else     : 'else';
-Return   : 'return';
-For      : 'for';
-While    : 'while';
-To       : 'to';
-Do       : 'do';
-End      : 'end';
-In       : 'in';
-Null     : 'null';
-PARAM    : 'param';
-ARGS      : 'args';
+Println  : P R I N T L I N E;
+PrintString : P R I N T S T R I N G;
+Print    : P R I N T;
+Input    :  I N P U T;
+Assert   : A S S E R T;
+Size     : S I Z E;
+Def      : M E T H O D;
+If       : I F ;
+Else     : E L S E;
+ElseIf:E L S E I F;
+Return   : R E T U R N;
+For      : F O R;
+While    : W H I L E;
+Repeat   : R E P E A T;
+Times    : T I M E S;
+To       : T O;
+Do       : D O;
+End      : E N D;
+In       : I N;
+Null     : N U L L;
+PARAMS    : P A R A M S;
+ARGS      : A R G S;
+Speak : S P E A K;
+Call : C A L L;
+As: A S;
+EndIf : E N D I F ;
+EndLoop : E N D L O O P;
+EndRepeat: E N D R E P E A T;
+EndMethod : E N D M E T H O D;
+EndFor : E N D F O R;
+EndWhile : E N D W H I L E;
+EqualsString : E Q U A L S ;
 
 Or       : '||';
 And      : '&&';
@@ -143,13 +169,16 @@ QMark    : '?';
 Colon    : ':';
 
 Bool
- : 'true' 
- | 'false'
+ :  T R U E
+ | F A L S E
  ;
 
 Number
  : Int ( '.' Digit* )?
  ;
+Type:
+I N T |  S T R I N G | B O O L E A N|D O U B L E
+;
 
 Identifier
  : [a-zA-Z_] [a-zA-Z_0-9]*
@@ -159,6 +188,11 @@ String
  : ["] ( ~["\r\n\\] | '\\' ~[\r\n] )* ["]
  | ['] ( ~['\r\n\\] | '\\' ~[\r\n] )* [']
  ;
+
+ErrorString
+:["] ( ~["\r\n\\] | '\\' ~[\r\n] )*
+| ['] ( ~['\r\n\\] | '\\' ~[\r\n] )*
+;
 
 
 Comment
@@ -177,3 +211,34 @@ fragment Int
 fragment Digit 
  : [0-9]
  ;
+
+ fragment A : [aA];
+ fragment B : [bB];
+ fragment C : [cC];
+ fragment D : [dD];
+ fragment E : [eE];
+ fragment F : [fF];
+ fragment G : [gG];
+ fragment H : [hH];
+ fragment I : [iI];
+ fragment J : [jJ];
+ fragment K : [kK];
+ fragment L : [lL];
+ fragment M : [mM];
+ fragment N : [nN];
+ fragment O : [oO];
+ fragment P : [pP];
+ fragment Q : [qQ];
+ fragment R : [rR];
+ fragment S : [sS];
+ fragment T : [tT];
+ fragment U : [uU];
+ fragment V : [vV];
+ fragment W : [wW];
+ fragment X : [xX];
+ fragment Y : [yY];
+ fragment Z : [zZ];
+
+
+
+

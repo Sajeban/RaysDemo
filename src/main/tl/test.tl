@@ -49,7 +49,7 @@ assert(a == (1+2+3+4+5+6+7+8+9+10));
 
 b = -10;
 c = 0;
-while b < 0 do 
+while b < 0 do
   c = c + b;
   b = b + 1;
 end
@@ -79,16 +79,16 @@ end
 
 // functions
 def twice(n)
-  temp = n + n; 
-  return temp; 
+  temp = n + n;
+  return temp;
 end
 
-def squared(n) 
-  return n*n; 
+def squared(n)
+  return n*n;
 end
 
-def squaredAndTwice(n) 
-  return twice(squared(n)); 
+def squaredAndTwice(n)
+  return twice(squared(n));
 end
 
 def list()

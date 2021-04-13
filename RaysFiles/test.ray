@@ -1,0 +1,90 @@
+assert(true || false)
+assert(1 < 2)
+/*name = "pavith"
+if name equals "pavith"
+print "come in"
+else
+print "go out"
+endif
+
+//speak "Enter your Marks"
+//x = call input
+//print x
+
+marks = 50
+
+if marks equals 50
+print "pass"
+else
+print "fail"
+endif
+/*
+method twice
+return 9
+endmethod
+
+print call twice
+
+//printStatements
+print "Hello"
+printline "World"
+
+//If condition example
+marks = 52
+if marks>90
+printline "Distinction"
+elseif marks>50
+printline "Honours"
+else
+printline "Pass"
+endif
+
+//Loop
+repeat 5 times
+printline "Well done"
+endloop
+
+
+f= input
+g= "5" as int
+speak g+2
+
+a=5
+b=a +5
+print b
+method twice do
+  speak 5
+end
+
+call twice
+call twice
+
+
+pRintln 5+3
+println 5+3.0
+PRINTLN 5.1+3.2
+println 5-3
+println 5.1-3
+println 5*3
+println 5*3.0
+
+println 5/2
+println 5/2.5
+
+if TRUE dO
+PRINT "HElLO"
+ENd
+
+repeat 10 times do
+print "Hello"
+end
+
+repeat 2 times do
+speak 2+3
+end
+
+println "Enter a number"
+a =input
+b = a+5
+print b
+*/

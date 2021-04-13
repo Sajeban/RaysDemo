@@ -1,0 +1,15 @@
+//repeat statement
+repeat 3 times
+speak "I am speaking in Rays"
+endrepeat
+
+//while statement
+x=3
+while x > 0
+printline "Rays in everyline"
+x=x-1
+endwhile
+
+
+
+//printline "Rays in everyline"
